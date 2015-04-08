@@ -1,32 +1,32 @@
-<h1>This is Index</h1>
+<h1>課程查詢系統</h1>
 
 <%= form_tag classselects_path,method: :get do %>
 <div>
-	Name : <%= text_field_tag :name %>
-	Teacher : <%= text_field_tag :teacher %>
-	Time: <%= text_field_tag :time %>
-	<%= submit_tag "Search" %>
+	課程名稱 : <%= text_field_tag :name %>
+	授課教師 : <%= text_field_tag :teacher %>
+	上課時間: <%= text_field_tag :time %>
+	<%= submit_tag "查詢" %>
 </div>
 <% end %>
 
 <hr>
 <div id="nav">
 	<div id="new">
-		<%= link_to "New",  new_classselect_path %>
+		<%= link_to "新增",  new_classselect_path %>
 	</div>&nbsp;
 	<div id="home">
-		<%= link_to "Home", classselects_path %>
+		<%= link_to "回列表", classselects_path %>
 	</div>
 </div>
 
 <table>
 	<tr>
-		<th width="20%">Name</th>
-		<th width="20%">Teacher</th>
-		<th width="20%">Place</th>
-		<th width="20%">Time</th>
-		<th width="20%">Score</th>
-		<th width="20%">Management</th>
+		<th width="20%">課程名稱</th>
+		<th width="20%">授課教師</th>
+		<th width="20%">上課地點</th>
+		<th width="20%">上課時間</th>
+		<th width="20%">學分數</th>
+		<th width="20%">課程管理</th>
 	</tr>
 <% @Class.each do |c| %>
 	<tr align="center">
@@ -35,7 +35,7 @@
 		<td><%=c.place%></td>
 		<td><%=c.time%></td>
 		<td><%=c.score%></td>
-		<td><%= link_to "Delete", c, method: :delete %>&nbsp;<%= link_to "Edit", edit_classselect_path(c) %></td>
+		<td><%= link_to "刪除", c, method: :delete %>&nbsp;<%= link_to "編輯", edit_classselect_path(c) %></td>
 	</tr>
 
 <% end%>
