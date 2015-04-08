@@ -1,0 +1,42 @@
+<h1>This is Index</h1>
+
+<%= form_tag classselects_path,method: :get do %>
+<div>
+	Name : <%= text_field_tag :name %>
+	Teacher : <%= text_field_tag :teacher %>
+	Time: <%= text_field_tag :time %>
+	<%= submit_tag "Search" %>
+</div>
+<% end %>
+
+<hr>
+<div id="nav">
+	<div id="new">
+		<%= link_to "New",  new_classselect_path %>
+	</div>&nbsp;
+	<div id="home">
+		<%= link_to "Home", classselects_path %>
+	</div>
+</div>
+
+<table>
+	<tr>
+		<th width="20%">Name</th>
+		<th width="20%">Teacher</th>
+		<th width="20%">Place</th>
+		<th width="20%">Time</th>
+		<th width="20%">Score</th>
+		<th width="20%">Management</th>
+	</tr>
+<% @Class.each do |c| %>
+	<tr align="center">
+		<td><%=c.name%></td>
+		<td><%=c.teacher%></td>
+		<td><%=c.place%></td>
+		<td><%=c.time%></td>
+		<td><%=c.score%></td>
+		<td><%= link_to "Delete", c, method: :delete %>&nbsp;<%= link_to "Edit", edit_classselect_path(c) %></td>
+	</tr>
+
+<% end%>
+</table>
